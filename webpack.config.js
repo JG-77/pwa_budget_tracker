@@ -11,19 +11,23 @@ const config = {
     // favorites: './public/assets/js/favorites.js',
   },
   output: {
+    //the new dist folder that will be created
     path: __dirname + '/public/dist',
     filename: '[name].bundle.js',
   },
   plugins: [
+    // including webpack pwa manifest package
     new WebpackPwaManifest({
       fingerprints: false,
       inject: false,
+      //app names and description
       name: 'Budget Tracker App',
       short_name: 'budget App',
       description: 'An application for keeping track of budgeting',
       background_color: '#01579b',
       theme_color: '#ffffff',
       start_url: '/',
+      // from icons folder
       icons: [
         {
           src: path.resolve('public/icons/icon-192x192.png'),
@@ -33,6 +37,7 @@ const config = {
       ],
     }),
   ],
+  // including babel-loader
   module: {
     rules: [
       {
