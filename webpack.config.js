@@ -9,7 +9,7 @@ const config = {
   output: {
     //the new dist folder that will be created
     path: __dirname + '/public/dist',
-    filename: '.bundle.js',
+    filename: 'bundle.js',
   },
   plugins: [
     // including webpack pwa manifest package
