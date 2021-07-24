@@ -1,4 +1,12 @@
-const FILES_TO_CACHE = ['/', '/index.html', '/styles.css'];
+const FILES_TO_CACHE = [
+  '/',
+  '/index.html',
+  '/styles.css',
+  '/dist/bundle.js',
+  'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+  '/dist/assets/icons/icon_192x192.png',
+  '/dist/assets/icons/icon_512x512.png',
+];
 
 const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime';
