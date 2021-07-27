@@ -1,3 +1,4 @@
+//imported savedRecord function from indexed.js that includes storage db
 import { saveRecord } from './indexed';
 let transactions = [];
 let myChart;

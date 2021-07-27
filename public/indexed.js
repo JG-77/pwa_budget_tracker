@@ -1,9 +1,11 @@
+//utilizing indexedDB from db.js file from NoSQL class activities
 let db;
 let budgetVersion;
 
-// Create a new db request for a "budget" database.
+//new db request for a "budget" database.
 const request = indexedDB.open('BudgetDB', budgetVersion || 21);
 
+//update the database to a new version or create the db if it doesn't exist yet
 request.onupgradeneeded = function (e) {
   console.log('Upgrade needed in IndexDB');
 
@@ -19,8 +21,9 @@ request.onupgradeneeded = function (e) {
   }
 };
 
+//console log errors
 request.onerror = function (e) {
-  console.log(`Woops! ${e.target.errorCode}`);
+  console.log(`DB error --> ${e.target.errorCode}`);
 };
 
 function checkDatabase() {
@@ -38,6 +41,7 @@ function checkDatabase() {
   // If the request was successful
   getAll.onsuccess = function () {
     // If there are items in the store, we need to bulk add them when we are back online
+    //updates are dynamic content for the budget
     if (getAll.result.length > 0) {
       fetch('/api/transaction/bulk', {
         method: 'POST',
@@ -59,7 +63,7 @@ function checkDatabase() {
 
             // Clear existing entries because our bulk add was successful
             currentStore.clear();
-            console.log('Clearing store 🧹');
+            console.log('Clearing store');
           }
         });
     }
@@ -72,7 +76,7 @@ request.onsuccess = function (e) {
 
   // Check if app is online before reading from db
   if (navigator.onLine) {
-    console.log('Backend online! 🗄️');
+    console.log('Backend online!');
     checkDatabase();
   }
 };

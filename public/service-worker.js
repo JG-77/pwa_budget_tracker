@@ -1,3 +1,4 @@
+// files that will be cached
 const FILES_TO_CACHE = [
   '/',
   '/index.html',
@@ -12,26 +13,31 @@ const FILES_TO_CACHE = [
 const PRECACHE = 'precache-v1';
 const RUNTIME = 'runtime';
 
+//install of the cache
 self.addEventListener('install', (event) => {
   event.waitUntil(
+    //all files we want to cache are pre-cached
     caches
       .open(PRECACHE)
       .then((cache) => cache.addAll(FILES_TO_CACHE))
+      //after the install, the service worker is activated
       .then(self.skipWaiting())
   );
 });
 
-// The activate handler takes care of cleaning up old caches.
+// Here we take care of cleaning up the old caches
 self.addEventListener('activate', (event) => {
   const currentCaches = [PRECACHE, RUNTIME];
   event.waitUntil(
     caches
       .keys()
+      //caches that aren't new are sorted together in an array
       .then((cacheNames) => {
         return cacheNames.filter(
           (cacheName) => !currentCaches.includes(cacheName)
         );
       })
+      //the old caches are then deleted
       .then((cachesToDelete) => {
         return Promise.all(
           cachesToDelete.map((cacheToDelete) => {
@@ -44,11 +50,13 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  //a fetch request is made to api route network
   if (event.request.url.includes('/api/')) {
     event.respondWith(
       caches.open(RUNTIME).then((cache) => {
         return fetch(event.request)
           .then((response) => {
+            //a successful responded updates caches with most current data
             if (response.status === 200) {
               cache.put(event.request.url, response.clone());
             }
@@ -61,6 +69,7 @@ self.addEventListener('fetch', (event) => {
       })
     );
   } else {
+    //if the request failed, the current cache is retreived
     event.respondWith(
       caches.open(PRECACHE).then((cache) => {
         return cache.match(event.request).then((response) => {

@@ -4,7 +4,7 @@ const path = require('path');
 const config = {
   mode: 'development',
 
-  // add entry points for JavaScript files for the three pages, home, detail, and favorites.
+  // add entry points for JavaScript files for entry file index.js
   entry: './public/index.js',
   output: {
     //the new dist folder that will be created
