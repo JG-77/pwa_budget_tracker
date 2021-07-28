@@ -81,6 +81,7 @@ request.onsuccess = function (e) {
   }
 };
 
+//exported to index.js
 export const saveRecord = (record) => {
   console.log('Save record invoked');
   // Create a transaction on the BudgetStore db with readwrite access

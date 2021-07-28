@@ -22,13 +22,33 @@ Keep track of your budget and spending with the simple Budget Tracker App! Simpl
 
 ---
 
-### Node.js/Express
+### Service-Worker.js
 
--
+- Registered the service-worker in index.html
+- Put files to be cached in an array variable
+- Installed the cache
+- Set up code to activate the cache and delete old cached files
+- Made a fetch request to update cache files when there is a successful response
+- Old cache is retrieved when there is a failed fetch request
 
-###
+### Webpack
 
-### Front-end (starter code)
+- Set index.js as entry point
+- 'dist' folder inside the public directory created as the output along with bundle.js
+- Added `WebpackPwaManifest` as the webpack plugin with app details
+- Included `babel-loader` as a module
+
+### Node.js/Express/Mongoose (Starter Code)
+
+- Starter Code to set up the working server and Mongoose database
+- API routes for handling transaction requests
+- Transaction model created for the finance input stored in the database
+
+### Front-end (Stater Code)
+
+- Creating HTMl elements
+- CSS styling
+- Javascript functionality for event listeners and chart creation
 
 ## Contact
 
