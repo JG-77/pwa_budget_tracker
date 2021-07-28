@@ -4,7 +4,7 @@
 
 ---
 
-[GitHub Link]()
+[GitHub Link](https://github.com/JG-77/pwa_budget_tracker.git)
 
 [Heroku Deployed Workout Tracker]()
 
@@ -15,6 +15,8 @@
 ## Description
 
 ---
+
+Keep track of your budget and spending with the simple Budget Tracker App! Simply entering the amount you want to add or subtract to your budget will display a graph to better visualize your financial progress. Being able to record your budget funding with new offline functionality gives users peace of mind when managing their finances without connection to an online network. This app takes the frustrating budgeting out of the equation, so you can track your finances with ease!
 
 ## Technologies
 
