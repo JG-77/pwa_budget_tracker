@@ -10,6 +10,12 @@
 
 ## Application Screenshots
 
+![Budget Tracker Homescreen](https://user-images.githubusercontent.com/76461629/127244991-6bb80d9f-e9a6-4a65-bf9e-f86ca89a71cf.png)
+---
+![Budget Tracker Homescreen Offline Request](https://user-images.githubusercontent.com/76461629/127245003-42eed0d7-1fc2-449d-8be5-3eab48de0e3b.png)
+---
+![Budget Tracker Homescreen Online Network Returned](https://user-images.githubusercontent.com/76461629/127245007-e2706a04-3c72-4cd8-8b61-388d6f585618.png)
+
 ---
 
 ## Description
